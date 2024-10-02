@@ -1,0 +1,14 @@
+{
+    "intents":[
+        {
+            "tag": "Saludo",
+            "patterns":["Hola", "Que tal", "Como estas", "Como andas", "Buenos dias"],
+            "responses":["Hola!", "Buenos dias!", "Que tal estas", "Que nececitas el dia de hoy"]
+        },
+        {
+            "tag": "Saludo",
+            "patterns":["Hola", "Que tal", "Como estas", "Como andas", "Buenos dias"],
+            "responses":["Hola!", "Buenos dias!", "Que tal estas", "Que nececitas el dia de hoy"]
+        }
+    ]
+}
