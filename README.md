@@ -6,12 +6,13 @@ Es una Pagina web que consiste el la visualización de los datos financieros de 
 ## ChatBot 
 ### Respuestas simples
 - [ ] Idea y ejemplos
-- [ ] Creacion del modelo
+- [ ] Creacion del bot
 - [ ] Entrenamiento de respuestas simples (saludos)
-### Uso de la base de Datos
+### Uso de datos
 - [ ] Conexion con la base de Datos
+- [ ] Mejoras en el Modelo
+- [ ] Uso del Algoritmo LTSM (Long Short-Term Memory)
 - [ ] Entrenamiento con los datos
-- [ ] Verificacion de respuestas complejas
 - [ ] Verificacion de respuestas Unicas para cada usuario
 
 ## Pagina Web
