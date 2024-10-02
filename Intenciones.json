@@ -2,13 +2,22 @@
     "intents":[
         {
             "tag": "Saludo",
-            "patterns":["Hola", "Que tal", "Como estas", "Como andas", "Buenos dias"],
-            "responses":["Hola!", "Buenos dias!", "Que tal estas", "Que nececitas el dia de hoy"]
+            "patterns":["Hola", "Que tal", "¿Como estas?", "Buenos dias", "Buenas tardes"],
+            "responses":["¡Hola!", "¡Buenos dias!", "¡Buenas tardes!", "¡Buenas noches!", "En que te puedo ayudar?"]
         },
         {
-            "tag": "Saludo",
-            "patterns":["Hola", "Que tal", "Como estas", "Como andas", "Buenos dias"],
-            "responses":["Hola!", "Buenos dias!", "Que tal estas", "Que nececitas el dia de hoy"]
+            "tag": "Nombre",
+            "patterns":["¿Quien eres?", "¿Cual es tu nombre?", "¿Como te llamas?"],
+            "responses":["Soy AsesorBot y estoy aqui para ayudate con tus finanzas",
+                        "Mi nombre es AsesorBot y estoy a tu servicio",
+                        "Me llamo AsesorBot y estoy aqui para ayudarte en lo que necesites"]   
+        },
+        {
+            "tag": "Proposito",
+            "patterns":["¿Que puedes hacer?", "¿Cual es tu funcion?", "¿Para que sirves?"],
+            "responses":["¡Puedo ayudarte a organizar tus finanzas, darte consejos de ahorro y mucho mas!",
+                        "¡Estoy aqui para ayudarte a mejorar tus finanzas!",
+                        "Dime que nececitas y te ayudare a mejorar tus finanzas"]   
         }
     ]
 }
