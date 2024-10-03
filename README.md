@@ -5,9 +5,9 @@ Es una Pagina web que consiste el la visualización de los datos financieros de 
 
 ## ChatBot 
 ### Respuestas simples
-- [ ] Idea y ejemplos
-- [ ] Creacion del bot
-- [ ] Entrenamiento de respuestas simples (saludos)
+- [x] Idea y ejemplos
+- [x] Creacion del bot
+- [x] Entrenamiento de respuestas simples (saludos)
 ### Uso de datos
 - [ ] Conexion con la base de Datos
 - [ ] Mejoras en el Modelo
