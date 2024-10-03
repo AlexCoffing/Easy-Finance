@@ -2,8 +2,14 @@
     "intents":[
         {
             "tag": "Saludo",
-            "patterns":["Hola", "Que tal", "¿Como estas?", "Buenos dias", "Buenas tardes"],
-            "responses":["¡Hola!", "¡Buenos dias!", "¡Buenas tardes!", "¡Buenas noches!", "En que te puedo ayudar?"]
+            "patterns":["Hola", "Buenos dias", "Buenas tardes"],
+            "responses":["¡Hola!", "¡Buenos dias!", "¡Buenas tardes!", "¡Buenas noches!", "¿En que te puedo ayudar?"]
+        },
+        {
+            "tag": "Estado_de_animo",
+            "patterns":["¿Como estas?","¿Que tal estas?", "¿Como te sientes?", "¿Como te va?", "Genial", "Muy bien", "Bien"],
+            "responses":["Muy bien, gracias por preguntar", "Estoy bien, gracias por preguntar", "¡Estoy bien! ¿Y tu?",
+                        "De maravilla y listo para ayudar", "¡Genial! ¿En que puedo ayudarte?"]
         },
         {
             "tag": "Nombre",
@@ -14,7 +20,8 @@
         },
         {
             "tag": "Proposito",
-            "patterns":["¿Que puedes hacer?", "¿Cual es tu funcion?", "¿Para que sirves?"],
+            "patterns":["¿Que puedes hacer?", "¿Cual es tu funcion?", "¿Para que sirves?", 
+                        "¿En que me puedes ayudar?", "¿Que haces?", "¿A que te dedicas?"],
             "responses":["¡Puedo ayudarte a organizar tus finanzas, darte consejos de ahorro y mucho mas!",
                         "¡Estoy aqui para ayudarte a mejorar tus finanzas!",
                         "Dime que nececitas y te ayudare a mejorar tus finanzas"]   
