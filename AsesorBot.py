@@ -6,25 +6,21 @@ import numpy as np
 import nltk
 from nltk.stem import WordNetLemmatizer
 
-from tensorflow.python.keras.engine import data_adapter
+from flask import Flask, request, jsonify
+from flask_cors import CORS  # Importar CORS
+from tensorflow.keras.models import load_model
 
-def _is_distributed_dataset(ds):
-    return isinstance(ds, data_adapter.input_lib.DistributedDatasetSpec)
-data_adapter._is_distributed_dataset = _is_distributed_dataset
-
-import tensorflow.python.keras as tf_keras
-from keras import __version__
-tf_keras.__version__ = __version__
-
-from tensorflow.python.keras.models import load_model
+# Inicializar el Flask y el chatbot
+app = Flask(__name__)
+CORS(app)  # Habilitar CORS para todas las rutas
 
 lemmatizer = WordNetLemmatizer()
 intents = json.loads(open('intents.json').read())
-
-words = pickle.load(open('words.pkl','rb'))
-classes = pickle.load(open('classes.pkl','rb'))
+words = pickle.load(open('words.pkl', 'rb'))
+classes = pickle.load(open('classes.pkl', 'rb'))
 model = load_model('chatbot_model.h5')
 
+# Funciones del chatbot
 def clean_up_sentence(sentence):
     sentence_words = nltk.word_tokenize(sentence)
     sentence_words = [lemmatizer.lemmatize(word.lower()) for word in sentence_words]
@@ -46,17 +42,22 @@ def predict_class(sentence):
     category = classes[max_index]
     return category
 
-def get_response(tag, intents_json):
+def get_bot_response(tag, intents_json):
     list_of_intents = intents_json['intents']
-    result = ''
     for i in list_of_intents:
         if i['tag'] == tag:
-            result = random.choice(i['responses'])
-            break
-    return result
+            return random.choice(i['responses'])
+    return "Lo siento, no entiendo tu pregunta."
 
-while True:
-    message = input('Tu: ')
+
+# Endpoint para recibir consultas y devolver respuestas
+@app.route('/get_response', methods=['POST'])
+def get_response():
+    data = request.get_json()
+    message = data.get("message")
     tag = predict_class(message)
-    response = get_response(tag, intents)
-    print('Asesor:', response)
+    response = get_bot_response(tag, intents)  # Usar el nuevo nombre aquí
+    return jsonify({"response": response})
+
+if __name__ == "__main__":
+    app.run(port=5000)

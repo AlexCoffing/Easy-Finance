@@ -1,0 +1,37 @@
+/* styles.css */
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: url('fondo.jfif'); /* Imagen de fondo */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cuadro {
+    background-color: rgba(255, 213, 159, 0.986); /* Color del fondo del cuadro */
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    width: 500px; /* Ajuste de ancho del cuadro */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+
+.form-container {
+    border: rgba(255, 213, 159, 0.986); /* Borde del cuadro */
+    border-radius: 8px; /* Esquinas redondeadas */
+    padding: 20px; /* Espacio interno */
+    margin: 20px; /* Espacio externo */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    background-color: rgba(255, 213, 159, 0.986); /* Color de fondo */
+}
