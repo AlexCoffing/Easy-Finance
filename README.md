@@ -9,7 +9,7 @@ Es una Pagina web que consiste el la visualización de los datos financieros de 
 - [x] Creacion del bot
 - [x] Entrenamiento de respuestas simples (saludos)
 ### Uso de datos
-- [ ] Conexion con la base de Datos
+- [x] Conexion con la base de Datos
 - [ ] Mejoras en el Modelo
 - [ ] Uso del Algoritmo LTSM (Long Short-Term Memory)
 - [ ] Entrenamiento con los datos
@@ -17,20 +17,23 @@ Es una Pagina web que consiste el la visualización de los datos financieros de 
 
 ## Pagina Web
 ### Apariencias
-- [ ] Ventana de Inicio de Sesion
-- [ ] Ventana para registrate
-- [ ] Ventana Principal
-- [ ] Conexion con la base de Datos
+- [x] Ventana de Inicio de Sesion
+- [x] Ventana para registrate
+- [x] Ventana Principal
+- [x] Conexion con la base de Datos
 ### Funciones Principales
-- [ ] Verificacion de que el usuario existe
-- [ ] Una tabla donde se observarán los datos de ingreso y egreso de los fondos del usuario
-- [ ] La tabla tendrá un filtro por categorias para los ingresos y gastos
-- [ ] Una grafica de pastel donde se muestre el porcentaje, la categoria, y la cantidad que ha gastado
-- [ ] Ventana del Chatbot
-- [ ] Conexión con el Chatbot
+- [x] Verificacion de que el usuario existe
+- [x] Una grafica de pastel donde se muestre el porcentaje, la categoria, y la cantidad que ha gastado
+- [x] Ventana del Chatbot
+- [x] Conexión con el Chatbot
       
 ## Funciones Adicionales
 - [ ] Uso de una API para saber que el RFC (Registro Federal de Contribuyentes) existe
 - [ ] Exportación de la tabla a PDF
       
 ... Más cosas por definir
+
+## Colaboradores:
+### ALEXANDER ESPINOSA   : Responsable de la Creación del ChatBot
+### JULIO CASTILLO       : Responsable de la Creación de la Interfaz
+### JORDAN SANCHEZ       : Project Manager del Equipo
