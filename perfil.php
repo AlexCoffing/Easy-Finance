@@ -61,6 +61,8 @@ if ($result->num_rows > 0) {
         .cuadro {
             text-align: center;
             margin: 20px;
+            background-color: rgba(255, 213, 135, 0.986);
+
         }
     </style>
 </head>

@@ -10,7 +10,8 @@ body {
 }
 
 .cuadro {
-    background-color: rgba(255, 213, 159, 0.986); /* Color del fondo del cuadro */
+    background-color: rgba(255, 213, 135, 0.986);
+
     border-radius: 15px;
     padding: 20px;
     text-align: center;
@@ -28,10 +29,10 @@ body {
 
 
 .form-container {
-    border: rgba(255, 213, 159, 0.986); /* Borde del cuadro */
+    background-color: rgba(255, 213, 135, 0.986);
     border-radius: 8px; /* Esquinas redondeadas */
     padding: 20px; /* Espacio interno */
     margin: 20px; /* Espacio externo */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
-    background-color: rgba(255, 213, 159, 0.986); /* Color de fondo */
+    background-color: rgba(255, 213, 135, 0.986);
 }

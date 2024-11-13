@@ -8,7 +8,7 @@ from nltk.stem import WordNetLemmatizer
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS  # Importar CORS
-from tensorflow.keras.models import load_model
+from tensorflow.keras.models import load_model # type: ignore
 
 # Inicializar el Flask y el chatbot
 app = Flask(__name__)

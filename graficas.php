@@ -56,6 +56,8 @@ $conn->close();
             flex-wrap: wrap; /* Permite que los gráficos se acomoden en varias líneas si el espacio no es suficiente */
             width: 100%;
             box-sizing: border-box;
+
+            
         }
 
         .grafica {
@@ -63,6 +65,8 @@ $conn->close();
             min-width: 200px; /* Ancho mínimo para cada gráfico */
             max-width: 300px; /* Ancho máximo para cada gráfico */
             height: 200px; /* Altura fija para los gráficos */
+            
+
         }
     </style>
 </head>
