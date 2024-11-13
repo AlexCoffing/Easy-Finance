@@ -34,6 +34,6 @@ Es una Pagina web que consiste el la visualización de los datos financieros de 
 ... Más cosas por definir
 
 ## Colaboradores:
-### ALEXANDER ESPINOSA   : Responsable de la Creación del ChatBot
-### JULIO CASTILLO       : Responsable de la Creación de la Interfaz
-### JORDAN SANCHEZ       : Project Manager del Equipo
+#### ALEXANDER ESPINOSA   : Responsable de la Creación del ChatBot
+#### JULIO CASTILLO       : Responsable de la Creación de la Interfaz
+#### JORDAN SANCHEZ       : Project Manager del Equipo
