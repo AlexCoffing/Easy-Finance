@@ -6,11 +6,15 @@ import numpy as np
 import mysql.connector
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from tensorflow.keras.models import load_model # type: ignore
-from tensorflow.keras.optimizers import SGD # type: ignore
+from tensorflow.keras.models import load_model
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Embedding, LSTM, Dropout, Dense
 from nltk.stem import WordNetLemmatizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.preprocessing.text import Tokenizer
 
-# Inicializar el Flask y el chatbot
+# Inicializar Flask y el chatbot
 app = Flask(__name__)
 CORS(app)
 
@@ -19,11 +23,27 @@ lemmatizer = WordNetLemmatizer()
 intents = json.loads(open('intents.json', encoding='utf-8').read())
 words = pickle.load(open('words.pkl', 'rb'))
 classes = pickle.load(open('classes.pkl', 'rb'))
-model = load_model('chatbot_model.h5')
+
+# Tokenización y padding de secuencias
+tokenizer = Tokenizer(num_words=len(words))
+tokenizer.fit_on_texts(words)
+sequences = tokenizer.texts_to_sequences(words)
+padded_sequences = pad_sequences(sequences, padding='post')
+
+# Definir el modelo LSTM
+model = Sequential()
+model.add(Embedding(input_dim=len(words) + 1, output_dim=64))
+model.add(LSTM(64, return_sequences=True))
+model.add(Dropout(0.5))
+model.add(LSTM(32))
+model.add(Dropout(0.5))
+model.add(Dense(len(classes), activation='softmax'))
 
 # Compilar el modelo
-model.compile(optimizer=SGD(learning_rate=0.01, decay=1e-6, momentum=0.9, nesterov=True), 
-              loss='categorical_crossentropy', metrics=['accuracy'])
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+# Cargar el modelo entrenado
+model = load_model('chatbot_model.h5')
 
 # Configuración de la conexión a MySQL
 db_config = {
@@ -32,6 +52,9 @@ db_config = {
     'host': 'localhost',
     'database': 'chatbot'
 }
+
+# Variable para almacenar el balance anterior de los usuarios
+last_balance = {}
 
 # Función para conectar y consultar el balance de un usuario
 def get_user_balance(user_id):
@@ -42,8 +65,14 @@ def get_user_balance(user_id):
     cursor.close()
     connection.close()
     if result:
-        return result['balance_total']
-    return None
+        current_balance = result['balance_total']
+        if user_id in last_balance:
+            previous_balance = last_balance[user_id]
+            if current_balance < previous_balance * 0.5:
+                return current_balance, True
+        last_balance[user_id] = current_balance
+        return current_balance, False
+    return None, False
 
 # Función para clasificar la intención del usuario
 def clean_up_sentence(sentence):
@@ -62,7 +91,8 @@ def bag_of_words(sentence):
 
 def predict_class(sentence):
     bow = bag_of_words(sentence)
-    res = model.predict(np.array([bow]))[0]
+    padded_bow = pad_sequences([bow], padding='post', maxlen=model.input_shape[1])
+    res = model.predict(padded_bow)[0]
     ERROR_THRESHOLD = 0.25  # Ajusta este umbral según sea necesario
     results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
 
@@ -72,17 +102,18 @@ def predict_class(sentence):
 
 # Función para obtener la respuesta del bot con datos personalizados
 def get_bot_response(tag, intents_json, user_id=None):
-    if tag == "consultar_balance" and user_id:  # Verifica la intención de balance
-        balance = get_user_balance(user_id)
+    if tag == "consultar_balance" and user_id:
+        balance, alert = get_user_balance(user_id)
         if balance is not None:
             response_template = random.choice(intents_json['intents'][3]['responses'])
             response = response_template.replace("[balance]", f"${balance}")
+            if alert:
+                response += " ¡Cuidado! Estás gastando mucho. Considera revisar tus finanzas."
             return response
         else:
             return "No encontré tu información de balance."
     else:
-        list_of_intents = intents_json['intents']
-        for i in list_of_intents:
+        for i in intents_json['intents']:
             if i['tag'] == tag:
                 return random.choice(i['responses'])
     return "Lo siento, no entiendo tu pregunta."
@@ -92,7 +123,7 @@ def get_bot_response(tag, intents_json, user_id=None):
 def get_response():
     data = request.get_json()
     message = data.get("message")
-    user_id = data.get("user_id")  # Suponiendo que el ID del usuario se pasa en la solicitud
+    user_id = data.get("user_id")
 
     tag = predict_class(message)
     response = get_bot_response(tag, intents, user_id=user_id)
