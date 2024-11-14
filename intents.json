@@ -1,9 +1,15 @@
 {
     "intents": [
         {
-            "tag": "Saludo",
-            "patterns": ["Hola", "Buenos días", "Buenas tardes", "Hey", "Hola, ¿cómo estás?", "¿Qué tal?", "¡Hola!"],
-            "responses": ["¡Hola!", "¡Buenos días!", "¡Buenas tardes!", "¿En qué te puedo ayudar?", "¡Hola! ¿Cómo estás?", "¡Hola! ¿Qué tal?", "¡Hey! ¿Cómo te va?"]
+            "tag": "saludo",
+            "patterns": [
+              "Hola", "Buenos días", "Buenas tardes", "Buenas noches", "¿Cómo estás?", "Hola, ¿qué tal?", 
+              "¿Qué tal?", "¡Hola, buenas!", "¡Qué tal!", "Hola, ¿cómo te va?", "¡Buenos días! ¿Cómo estás?"
+            ],
+            "responses": [
+              "¡Hola! ¿Cómo puedo ayudarte hoy?", "¡Buenas! ¿En qué te puedo asistir?", "¡Buenas! ¿Cómo estás?",
+              "¡Buenas! Espero que hayas tenido un buen día", "¡Hola! ¿En qué puedo ayudarte hoy?"
+            ]
         },
         {
             "tag": "Nombre",
@@ -17,18 +23,64 @@
         },
         {
             "tag": "consultar_balance",
-            "patterns": ["¿Cuál es mi balance?", "Quiero saber mi balance", "¿Cuánto tengo en mi cuenta?", "Consulta de balance", "¿Cuál es mi saldo?", "Muéstrame mi balance", "¿Podrías verificar mi saldo?", "¿Qué tengo en mi cuenta?"],
-            "responses": ["Tu balance actual es [balance].", "Tienes un balance de [balance].", "Actualmente, tu saldo es de [balance].", "El balance en tu cuenta es [balance]."]
+            "patterns": [
+              "¿Cuál es mi balance?", "Quiero saber mi balance", "Consulta de balance", "¿Cuánto dinero tengo?", 
+              "¿Cuál es mi saldo?", "Quiero ver mi balance", "Muéstrame mi saldo", "¿Cuánto hay en mi cuenta?", 
+              "¿Cuál es mi balance actual?", "¿Qué tengo en mi cuenta?", "¿Cuánto dinero hay en mi cuenta?", "Consulta saldo",
+              "¿Cómo está mi saldo?", "¿Puedo ver mi balance?", "¿Qué saldo tengo ahora?", "¿Cómo está mi cuenta?"
+            ],
+            "responses": [
+              "Tu balance es [balance].", "Tienes [balance] en tu cuenta.", "Actualmente, tu balance es de [balance].",
+              "En este momento, tienes [balance] disponible.", "Tu saldo actual es [balance]."
+            ]
         },
         {
-            "tag": "Despedida",
-            "patterns": ["Adiós", "Hasta luego", "Nos vemos", "Me despido", "Chao", "¡Adiós!"],
-            "responses": ["¡Adiós! Que tengas un buen día.", "Hasta luego, ¡cuídate!", "Nos vemos pronto.", "Me despido, ¡hasta la próxima!", "Chao, ¡fue un placer ayudarte!"]
+            "tag": "despedida",
+            "patterns": [
+              "Adiós", "Hasta luego", "Nos vemos", "Chao", "Cuídate", "Hasta pronto", "Adiós, nos vemos", 
+              "Hasta la próxima", "Que tengas un buen día", "¡Nos vemos pronto!"
+            ],
+            "responses": [
+              "¡Adiós! ¡Que tengas un excelente día!", "Hasta luego, ¡cuídate mucho!", "Nos vemos pronto. ¡Cuídate!",
+              "¡Chao! Que tengas un buen día", "¡Hasta pronto! ¡Que todo te vaya bien!", "¡Nos vemos! ¡Cuídate!"
+            ]
         },
         {
             "tag": "Agradecimiento",
             "patterns": ["Gracias", "Muchas gracias", "Te lo agradezco", "¡Mil gracias!", "¡Gracias!"],
             "responses": ["¡De nada! Estoy aquí para ayudarte.", "No hay de qué, ¡es un placer ayudarte!", "Siempre a tu servicio.", "¡Gracias a ti! ¿Necesitas algo más?"]
-        }
+        },
+        {
+            "tag": "consejos_ahorro",
+            "patterns": [
+              "Dame consejos de ahorro", "Quiero ahorrar dinero", "¿Cómo puedo ahorrar?", "Consejos para ahorrar", 
+              "Ayuda para ahorrar", "¿Tienes consejos para ahorrar?", "Dame ideas para ahorrar dinero", "¿Qué puedo hacer para ahorrar?", 
+              "¿Cómo puedo mejorar mis ahorros?", "Ayúdame a ahorrar más", "Ideas para ahorrar dinero", "¿Qué hago para ahorrar?"
+            ],
+            "responses": [
+              "Un buen consejo de ahorro es separar un porcentaje de tus ingresos cada mes antes de gastar en otras cosas.",
+              "Evita gastos innecesarios y crea un presupuesto mensual para controlar mejor tus finanzas.",
+              "Intenta comprar productos en oferta y usa cupones para reducir tus gastos.",
+              "Ahorra un poco cada día, incluso pequeñas cantidades pueden sumar con el tiempo.",
+              "Reduce gastos en ocio y entretenimiento, y busca alternativas más económicas o gratuitas.",
+              "Considera ahorrar un porcentaje fijo de tus ingresos cada mes, independientemente de lo que suceda."
+            ]
+        },
+        {
+            "tag": "objetivos_financieros",
+            "patterns": [
+              "¿Cómo establezco objetivos financieros?", "Objetivos de ahorro", "Quiero establecer metas financieras", 
+              "Metas de dinero", "¿Cómo definir metas financieras?", "¿Cómo puedo lograr mis objetivos financieros?", 
+              "Ayúdame a establecer metas de ahorro", "Consejos para establecer objetivos financieros", "Metas financieras"
+            ],
+            "responses": [
+              "Para establecer objetivos financieros, comienza definiendo metas específicas y realistas.",
+              "Divide tus objetivos en corto, mediano y largo plazo y planifica cómo alcanzar cada uno.",
+              "Monitorea tu progreso regularmente y ajusta tus metas según sea necesario.",
+              "Asegúrate de tener un fondo de emergencia antes de enfocarte en otras metas financieras.",
+              "Automatiza tus ahorros para que una parte de tus ingresos se deposite directamente en una cuenta de ahorro.",
+              "Recuerda que un objetivo financiero debe ser alcanzable, medible y con plazos claros."
+            ]
+        }       
     ]
 }

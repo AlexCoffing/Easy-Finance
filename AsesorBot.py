@@ -4,15 +4,18 @@ import pickle
 import nltk
 import numpy as np
 import mysql.connector
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from tensorflow.keras.models import load_model
-from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Embedding, LSTM, Dropout, Dense
+
 from nltk.stem import WordNetLemmatizer
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.preprocessing.text import Tokenizer
+
+from tensorflow.keras.models import load_model  # type: ignore
+from tensorflow.keras.optimizers import Adam    # type: ignore
+from tensorflow.keras.models import Sequential  # type: ignore
+from tensorflow.keras.layers import Embedding, LSTM, Dropout, Dense # type: ignore
+from tensorflow.keras.preprocessing.sequence import pad_sequences   # type: ignore
+from tensorflow.keras.preprocessing.text import Tokenizer           # type: ignore
 
 # Inicializar Flask y el chatbot
 app = Flask(__name__)
@@ -93,7 +96,7 @@ def predict_class(sentence):
     bow = bag_of_words(sentence)
     padded_bow = pad_sequences([bow], padding='post', maxlen=model.input_shape[1])
     res = model.predict(padded_bow)[0]
-    ERROR_THRESHOLD = 0.25  # Ajusta este umbral según sea necesario
+    ERROR_THRESHOLD = 0.25  # Ajuste de umbral según sea necesario
     results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
 
     # Ordenar por fuerza de probabilidad
