@@ -10,6 +10,7 @@ if (!isset($_SESSION['usuario'])) {
 }
 
 $usuario = $_SESSION['nombre_usuario']; // Recuperar el nombre del usuario desde la sesión
+$user_id = $_SESSION['user_id']; // Recuperar el ID del usuario desde la sesión
 
 // Conexión a la base de datos
 require "conecta_chatbot.php";
@@ -110,7 +111,7 @@ $result = $stmt->get_result();
                 $.ajax({
                     url: 'procesar_consulta.php',
                     method: 'POST',
-                    data: { consulta: consulta },
+                    data: { consulta: consulta, user_id: '<?php echo $user_id; ?>' },
                     success: function(response) {
                         appendMessage(response, 'bot');
                     },
