@@ -63,16 +63,20 @@ def bag_of_words(sentence):
 def predict_class(sentence):
     bow = bag_of_words(sentence)
     res = model.predict(np.array([bow]))[0]
-    max_index = np.where(res == np.amax(res))[0][0]
-    category = classes[max_index]
-    return category
+    ERROR_THRESHOLD = 0.25  # Ajusta este umbral según sea necesario
+    results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
+
+    # Ordenar por fuerza de probabilidad
+    results.sort(key=lambda x: x[1], reverse=True)
+    return classes[results[0][0]] if results else 'unknown'
 
 # Función para obtener la respuesta del bot con datos personalizados
 def get_bot_response(tag, intents_json, user_id=None):
     if tag == "consultar_balance" and user_id:  # Verifica la intención de balance
         balance = get_user_balance(user_id)
         if balance is not None:
-            response = random.choice([response.replace('[balance]', f"${balance}") for response in intents_json['intents'][4]['responses']])
+            response_template = random.choice(intents_json['intents'][3]['responses'])
+            response = response_template.replace("[balance]", f"${balance}")
             return response
         else:
             return "No encontré tu información de balance."

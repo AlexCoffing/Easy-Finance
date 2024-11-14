@@ -6,9 +6,9 @@ import numpy as np
 import nltk
 from nltk.stem import WordNetLemmatizer
 
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Dropout
-from tensorflow.keras.optimizers import SGD
+from tensorflow.keras.models import Sequential      # type: ignore
+from tensorflow.keras.layers import Dense, Dropout  # type: ignore
+from tensorflow.keras.optimizers import SGD         # type: ignore
 
 # Inicializar y descargar recursos NLTK
 lemmatizer = WordNetLemmatizer()
@@ -73,7 +73,7 @@ sgd = SGD(learning_rate=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
 # Entrenar modelo
-train_process = model.fit(train_x, train_y, epochs=200, batch_size=5, verbose=1)
+train_process = model.fit(train_x, train_y, epochs=350, batch_size=5, verbose=1)
 
 # Guardar modelo
 model.save('chatbot_model.h5')

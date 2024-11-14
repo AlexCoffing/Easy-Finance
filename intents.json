@@ -2,28 +2,33 @@
     "intents": [
         {
             "tag": "Saludo",
-            "patterns": ["Hola", "Buenos días", "Buenas tardes"],
-            "responses": ["¡Hola!", "¡Buenos días!", "¡Buenas tardes!", "¿En qué te puedo ayudar?"]
-        },
-        {
-            "tag": "Estado_de_animo",
-            "patterns": ["¿Cómo estás?", "¿Qué tal estás?", "¿Cómo te sientes?", "¿Cómo te va?", "Genial", "Muy bien", "Bien"],
-            "responses": ["Muy bien, gracias por preguntar", "Estoy bien, gracias por preguntar", "¡Estoy bien! ¿Y tú?", "De maravilla y listo para ayudar", "¡Genial! ¿En qué puedo ayudarte?"]
+            "patterns": ["Hola", "Buenos días", "Buenas tardes", "Hey", "Hola, ¿cómo estás?", "¿Qué tal?", "¡Hola!"],
+            "responses": ["¡Hola!", "¡Buenos días!", "¡Buenas tardes!", "¿En qué te puedo ayudar?", "¡Hola! ¿Cómo estás?", "¡Hola! ¿Qué tal?", "¡Hey! ¿Cómo te va?"]
         },
         {
             "tag": "Nombre",
-            "patterns": ["¿Quién eres?", "¿Cuál es tu nombre?", "¿Cómo te llamas?"],
-            "responses": ["Soy AsesorBot y estoy aquí para ayudarte con tus finanzas", "Me llamo AsesorBot y estoy aquí para ayudarte en lo que necesites"]
+            "patterns": ["¿Quién eres?", "¿Cuál es tu nombre?", "¿Cómo te llamas?", "¿Cuál es tu apodo?", "Dime tu nombre"],
+            "responses": ["Soy AsesorBot y estoy aquí para ayudarte con tus finanzas", "Me llamo AsesorBot y estoy aquí para ayudarte en lo que necesites", "Mi nombre es AsesorBot, ¿en qué te puedo ayudar?"]
         },
         {
             "tag": "Proposito",
-            "patterns": ["¿Qué puedes hacer?", "¿Cuál es tu función?", "¿Para qué sirves?", "¿En qué me puedes ayudar?", "¿Qué haces?", "¿A qué te dedicas?"],
-            "responses": ["¡Puedo ayudarte a organizar tus finanzas, darte consejos de ahorro y mucho más!", "Estoy aquí para ayudarte a mejorar tus finanzas.", "Dime qué necesitas y te ayudaré a mejorar tus finanzas"]
+            "patterns": ["¿Qué puedes hacer?", "¿Cuál es tu función?", "¿Para qué sirves?", "¿En qué me puedes ayudar?", "¿Qué haces?", "¿A qué te dedicas?", "¿Cuál es tu propósito?"],
+            "responses": ["¡Puedo ayudarte a organizar tus finanzas, darte consejos de ahorro y mucho más!", "Estoy aquí para ayudarte a mejorar tus finanzas.", "Dime qué necesitas y te ayudaré a mejorar tus finanzas", "Mi propósito es asistirte con tus finanzas personales.", "Estoy aquí para ofrecerte asesoramiento financiero."]
         },
         {
             "tag": "consultar_balance",
-            "patterns": ["¿Cuál es mi balance?", "Quiero saber mi balance", "¿Cuánto tengo en mi cuenta?", "Consulta de balance", "¿Cuál es mi saldo?"],
-            "responses": ["Tu balance actual es [balance].", "Tienes un balance de [balance]."]
+            "patterns": ["¿Cuál es mi balance?", "Quiero saber mi balance", "¿Cuánto tengo en mi cuenta?", "Consulta de balance", "¿Cuál es mi saldo?", "Muéstrame mi balance", "¿Podrías verificar mi saldo?", "¿Qué tengo en mi cuenta?"],
+            "responses": ["Tu balance actual es [balance].", "Tienes un balance de [balance].", "Actualmente, tu saldo es de [balance].", "El balance en tu cuenta es [balance]."]
+        },
+        {
+            "tag": "Despedida",
+            "patterns": ["Adiós", "Hasta luego", "Nos vemos", "Me despido", "Chao", "¡Adiós!"],
+            "responses": ["¡Adiós! Que tengas un buen día.", "Hasta luego, ¡cuídate!", "Nos vemos pronto.", "Me despido, ¡hasta la próxima!", "Chao, ¡fue un placer ayudarte!"]
+        },
+        {
+            "tag": "Agradecimiento",
+            "patterns": ["Gracias", "Muchas gracias", "Te lo agradezco", "¡Mil gracias!", "¡Gracias!"],
+            "responses": ["¡De nada! Estoy aquí para ayudarte.", "No hay de qué, ¡es un placer ayudarte!", "Siempre a tu servicio.", "¡Gracias a ti! ¿Necesitas algo más?"]
         }
     ]
 }
