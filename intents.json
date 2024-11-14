@@ -4,36 +4,78 @@
             "tag": "saludo",
             "patterns": [
               "Hola", "Buenos días", "Buenas tardes", "Buenas noches", "¿Cómo estás?", "Hola, ¿qué tal?", 
-              "¿Qué tal?", "¡Hola, buenas!", "¡Qué tal!", "Hola, ¿cómo te va?", "¡Buenos días! ¿Cómo estás?"
+              "¿Qué tal?", "¡Hola, buenas!", "¡Qué tal!", "Hola, ¿cómo te va?", "¡Buenos días! ¿Cómo estás?",
+              "Saludos", "¡Ey!", "¿Cómo andas?", "¡Hola! ¿Qué haces?", "¿Qué tal tu día?", "Hola, AsesorBot"
             ],
             "responses": [
               "¡Hola! ¿Cómo puedo ayudarte hoy?", "¡Buenas! ¿En qué te puedo asistir?", "¡Buenas! ¿Cómo estás?",
-              "¡Buenas! Espero que hayas tenido un buen día", "¡Hola! ¿En qué puedo ayudarte hoy?"
+              "¡Buenas! Espero que hayas tenido un buen día", "¡Hola! ¿En qué puedo ayudarte hoy?",
+              "¡Hola! ¿Cómo te va?", "¡Saludos! ¿En qué te puedo ayudar?", "¡Hey! ¿Qué tal?", "¡Hola! ¿Todo bien?"
             ]
-        },
+        },        
         {
             "tag": "Nombre",
-            "patterns": ["¿Quién eres?", "¿Cuál es tu nombre?", "¿Cómo te llamas?", "¿Cuál es tu apodo?", "Dime tu nombre"],
-            "responses": ["Soy AsesorBot y estoy aquí para ayudarte con tus finanzas", "Me llamo AsesorBot y estoy aquí para ayudarte en lo que necesites", "Mi nombre es AsesorBot, ¿en qué te puedo ayudar?"]
-        },
+            "patterns": ["¿Quién eres?", "¿Cuál es tu nombre?", "¿Cómo te llamas?", "¿Cuál es tu apodo?", "Dime tu nombre", 
+            "¿Cómo te llamas tú?", "¿Puedes decirme tu nombre?", "¿Cuál es tu nombre completo?"
+            ],
+            "responses": ["Soy AsesorBot y estoy aquí para ayudarte con tus finanzas", 
+            "Me llamo AsesorBot y estoy aquí para ayudarte en lo que necesites", 
+            "Mi nombre es AsesorBot, ¿en qué te puedo ayudar?", 
+            "Soy AsesorBot, tu asistente financiero."
+            ]
+        },        
         {
             "tag": "Proposito",
-            "patterns": ["¿Qué puedes hacer?", "¿Cuál es tu función?", "¿Para qué sirves?", "¿En qué me puedes ayudar?", "¿Qué haces?", "¿A qué te dedicas?", "¿Cuál es tu propósito?"],
-            "responses": ["¡Puedo ayudarte a organizar tus finanzas, darte consejos de ahorro y mucho más!", "Estoy aquí para ayudarte a mejorar tus finanzas.", "Dime qué necesitas y te ayudaré a mejorar tus finanzas", "Mi propósito es asistirte con tus finanzas personales.", "Estoy aquí para ofrecerte asesoramiento financiero."]
-        },
+            "patterns": ["¿Qué puedes hacer?", "¿Cuál es tu función?", "¿Para qué sirves?", "¿En qué me puedes ayudar?", 
+            "¿Qué haces?", "¿A qué te dedicas?", "¿Cuál es tu propósito?", "¿Qué puedes hacer por mí?", 
+            "¿Cómo puedes ayudarme?", "¿Qué servicios ofreces?"
+            ],
+            "responses": ["¡Puedo ayudarte a organizar tus finanzas, darte consejos de ahorro y mucho más!", 
+            "Estoy aquí para ayudarte a mejorar tus finanzas.", "Dime qué necesitas y te ayudaré a mejorar tus finanzas", 
+            "Mi propósito es asistirte con tus finanzas personales.", "Estoy aquí para ofrecerte asesoramiento financiero.", 
+            "Te puedo ayudar con la gestión de tus finanzas, consejos de ahorro, y más.", 
+            "Estoy aquí para ayudarte a administrar y optimizar tus finanzas."
+            ]
+        },        
         {
             "tag": "consultar_balance",
             "patterns": [
               "¿Cuál es mi balance?", "Quiero saber mi balance", "Consulta de balance", "¿Cuánto dinero tengo?", 
               "¿Cuál es mi saldo?", "Quiero ver mi balance", "Muéstrame mi saldo", "¿Cuánto hay en mi cuenta?", 
               "¿Cuál es mi balance actual?", "¿Qué tengo en mi cuenta?", "¿Cuánto dinero hay en mi cuenta?", "Consulta saldo",
-              "¿Cómo está mi saldo?", "¿Puedo ver mi balance?", "¿Qué saldo tengo ahora?", "¿Cómo está mi cuenta?"
+              "¿Cómo está mi saldo?", "¿Puedo ver mi balance?", "¿Qué saldo tengo ahora?", "¿Cómo está mi cuenta?",
+              "¿Cuánto saldo tengo?", "Revisar balance", "Ver saldo", "¿Cuánto tengo en el banco?"
             ],
             "responses": [
               "Tu balance es [balance].", "Tienes [balance] en tu cuenta.", "Actualmente, tu balance es de [balance].",
-              "En este momento, tienes [balance] disponible.", "Tu saldo actual es [balance]."
+              "En este momento, tienes [balance] disponible.", "Tu saldo actual es [balance].", "Ahora mismo, tu balance es de [balance].", "Tienes un saldo de [balance].", "Tu cuenta tiene [balance]."
             ]
-        },
+        },        
+        {
+            "tag": "consulta_compra",
+            "patterns": [
+              "Quiero comprar una compu de $20000 pesos, ¿me alcanza?",
+              "¿Puedo comprar un teléfono de $5000?",
+              "Quiero saber si puedo permitirme una compra de $15000",
+              "¿Me alcanza para comprar algo de $8000?",
+              "¿Puedo comprar algo que cuesta $3000?",
+              "¿Tengo suficiente para comprar una bicicleta de $12000?",
+              "¿Me alcanza para una TV de $25000?",
+              "Quiero gastar $15000 en una nueva computadora, ¿puedo?",
+              "¿Puedo permitirme una compra de $10000?",
+              "¿Puedo comprarme un lonche de $50? para desayunar",
+              "¿Puedo comprar un libro de $500?",
+              "¿Tengo suficiente para comprar una camisa de $1000?",
+              "¿Me alcanza para comprar un par de zapatos de $2000?"
+            ],
+            "responses": [
+              "Déjame revisar tu balance.",
+              "Voy a comprobar si puedes realizar esa compra.",
+              "Revisando si tienes suficiente dinero para esa compra.",
+              "Voy a verificar tu saldo para esa compra.",
+              "Déjame verificar tu saldo."
+            ]
+        },                  
         {
             "tag": "despedida",
             "patterns": [
@@ -55,7 +97,8 @@
             "patterns": [
               "Dame consejos de ahorro", "Quiero ahorrar dinero", "¿Cómo puedo ahorrar?", "Consejos para ahorrar", 
               "Ayuda para ahorrar", "¿Tienes consejos para ahorrar?", "Dame ideas para ahorrar dinero", "¿Qué puedo hacer para ahorrar?", 
-              "¿Cómo puedo mejorar mis ahorros?", "Ayúdame a ahorrar más", "Ideas para ahorrar dinero", "¿Qué hago para ahorrar?"
+              "¿Cómo puedo mejorar mis ahorros?", "Ayúdame a ahorrar más", "Ideas para ahorrar dinero", "¿Qué hago para ahorrar?",
+              "Consejos de finanzas", "Estrategias de ahorro", "Sugerencias para ahorrar"
             ],
             "responses": [
               "Un buen consejo de ahorro es separar un porcentaje de tus ingresos cada mes antes de gastar en otras cosas.",
@@ -63,9 +106,10 @@
               "Intenta comprar productos en oferta y usa cupones para reducir tus gastos.",
               "Ahorra un poco cada día, incluso pequeñas cantidades pueden sumar con el tiempo.",
               "Reduce gastos en ocio y entretenimiento, y busca alternativas más económicas o gratuitas.",
-              "Considera ahorrar un porcentaje fijo de tus ingresos cada mes, independientemente de lo que suceda."
+              "Considera ahorrar un porcentaje fijo de tus ingresos cada mes, independientemente de lo que suceda.",
+              "Revise sus gastos mensuales y recorte donde pueda.", "Intente evitar las compras impulsivas y planifique sus gastos."
             ]
-        },
+        },        
         {
             "tag": "objetivos_financieros",
             "patterns": [

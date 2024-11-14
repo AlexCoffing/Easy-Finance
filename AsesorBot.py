@@ -9,6 +9,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 from nltk.stem import WordNetLemmatizer
+import re # Expresiones regulares
 
 from tensorflow.keras.models import load_model  # type: ignore
 from tensorflow.keras.optimizers import Adam    # type: ignore
@@ -103,8 +104,16 @@ def predict_class(sentence):
     results.sort(key=lambda x: x[1], reverse=True)
     return classes[results[0][0]] if results else 'unknown'
 
+# Función para extraer el monto de compra mencionado en el mensaje
+def get_purchase_amount(message):
+    # Busca una cantidad en el mensaje usando expresiones regulares
+    match = re.search(r'\b(\d+(\.\d{1,2})?)\b', message)
+    if match:
+        return float(match.group(1))
+    return None
+
 # Función para obtener la respuesta del bot con datos personalizados
-def get_bot_response(tag, intents_json, user_id=None):
+def get_bot_response(tag, intents_json, user_id=None, message=None):
     if tag == "consultar_balance" and user_id:
         balance, alert = get_user_balance(user_id)
         if balance is not None:
@@ -115,6 +124,22 @@ def get_bot_response(tag, intents_json, user_id=None):
             return response
         else:
             return "No encontré tu información de balance."
+
+    elif tag == "consulta_compra" and user_id and message:
+        balance, _ = get_user_balance(user_id)
+        purchase_amount = get_purchase_amount(message)
+        
+        if balance is None:
+            return "No encontré tu información de balance."
+
+        if purchase_amount is not None:
+            if purchase_amount > balance:
+                return "Perdón, pero no te alcanza. Compra algo más barato."
+            else:
+                return "Está bien, puedes comprarlo."
+        else:
+            return "No entendí el monto de tu compra. Intenta especificarlo en números, por ejemplo: $2000."
+    
     else:
         for i in intents_json['intents']:
             if i['tag'] == tag:
@@ -129,7 +154,7 @@ def get_response():
     user_id = data.get("user_id")
 
     tag = predict_class(message)
-    response = get_bot_response(tag, intents, user_id=user_id)
+    response = get_bot_response(tag, intents, user_id=user_id, message=message)  # Pasar el mensaje aquí
     return jsonify({"response": response})
 
 if __name__ == "__main__":
